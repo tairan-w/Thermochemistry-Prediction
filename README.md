@@ -54,11 +54,11 @@ It must be noted that the files for SVR and ANN are very similar and could be co
 
 
 
-##Authorship
+##Authorship 
 
 Tairan Wang was responsible for the code and data.
 
-##Acknowledgement
+##Acknowledgement 
 
 This code was developed at the King Abdullah University of Science and Technology (KAUST).
 
