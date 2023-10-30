@@ -3,6 +3,8 @@ This is the repository for the paper "Transfer Learning and Graph Neural Network
 
 
 ## Environment
+
+
 Anaconda was used to create the virtual environment for this project. Feel free to use one of the following commands to set up the required environment:
 
 Conda commands:
@@ -15,6 +17,7 @@ conda install pandas keras scikit-learn xlrd
 
 
 ##Overview of files
+
 It must be noted that the files for SVR and ANN are very similar and could be combined in to single files. They were kept separate for this repository in order to reduce ambiguity.
 
 
@@ -52,9 +55,11 @@ It must be noted that the files for SVR and ANN are very similar and could be co
 
 
 ##Authorship
+
 Tairan Wang was responsible for the code and data.
 
 ##Acknowledgement
+
 This code was developed at the King Abdullah University of Science and Technology (KAUST).
 
 
