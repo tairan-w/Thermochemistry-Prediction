@@ -18,16 +18,16 @@ Tips: Using code `conda install -c rdkit rdkit` can help you install package RDK
 
 ## Directory Structure
 
-###data                  
+### data                  
 This directory contains the code for data processing and preprocessing. It also includes the scripts for data splitting, molecular feature extraction, and classification.
 
-###features
+### features
 This directory contains the code for atomic and bond feature extraction, as well as the generation of additional molecular descriptors.
 
-###model
+### model
 This directory contains the code for model definitions.
 
-###train
+### train
 This directory contains the code for model training, evaluation, and cross-validation.
 
 
