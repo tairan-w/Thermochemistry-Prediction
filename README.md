@@ -67,18 +67,31 @@ To train a model, run:
 where <path> is the path to a CSV file containing a dataset, <type> is either "classification" or "regression" depending on the type of the dataset.
 
 Key hyperparameters include:
+
 Learning Rate
+
 Batch Size
+
 Number of ‎Message-Passing Steps
+
 Hidden Size
+
 Number of Fully ‎Connected Layers
+
 Dropout Rate
+
 Weight Decay
+
 Optimizer
+
 Aggregation ‎Normalization
+
 Graph Pooling Method
+
 Attention Heads
+
 Early Stopping Patience
+
 Activation Function
 
 
