@@ -37,7 +37,7 @@ Place the SMILES data files in the data/ directory.
 Ensure data follows the format:
 
 `SMILES,Hf(298K),S(298K),C300,C400,C500,C600,C800,C1000,C1500`
-`COO,-30.08,67.3,14.34,16.8,19.09,21.07,24.19,26.52,30.25`
+COO,-30.08,67.3,14.34,16.8,19.09,21.07,24.19,26.52,30.25
 
 Run scripts:
 `python data/scaffold.py --input <data_path> --output data/processed_data.csv`
