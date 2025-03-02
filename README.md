@@ -1,6 +1,26 @@
-# Thermochemistry Prediction
-This is the repository for the paper "Transfer Learning and Graph Neural Network Approach to Multitarget Temperature-Dependent Thermochemistry Prediction".
+# DeepTherm
+This is the repository for the paper "DeepTherm: A Unified Deep Learning Approach to ‎Thermochemistry Prediction for Gas-phase Molecules‎".
 
+DeepTherm is a deep learning framework designed to predict thermochemical properties, such as enthalpy of formation, entropy, and heat capacity for diverse molecular species. The project integrates directed message-passing networks and global attention mechanisms to capture both local and long-range dependencies in molecular graphs.
+
+The datasets are provided along with the paper.
+
+The code was built based on [DMPNN](https://github.com/chemprop/chemprop). Thanks a lot for their code sharing!
+
+## Dependencies
+
++ cuda >= 8.0
++ cuDNN
++ RDKit
++ torch >= 1.2.0
+
+Tips: Using code `conda install -c rdkit rdkit` can help you install package RDKit quickly.
+
+## Directory Structure
+├── data/                   # Contains data processing scripts
+├── features/               # Contains feature extraction scripts
+├── models/                 # Contains model definitions
+├── train/                  # Contains training, evaluation, and cross-validation scripts
 
 ## Environment
 
@@ -10,8 +30,8 @@ Anaconda was used to create the virtual environment for this project. Feel free 
 Conda commands:
 
 ```
-conda create -n thermochemistry_prediction python=3.6
-conda activate thermochemistry_prediction  
+conda create -n DeepTherm python=3.6
+conda activate DeepTherm  
 conda install pandas keras scikit-learn xlrd
 ``` 
 
