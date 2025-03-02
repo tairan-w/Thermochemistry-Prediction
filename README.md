@@ -99,7 +99,7 @@ Activation Function
 
 `python predict.py --data_path <path> --checkpoint_dir <dir>`
 
-where <dir> is the directory where the model checkpoint(s) are saved, and <path> is the path of SMILES dataset
+where `<dir>` is the directory where the model checkpoint(s) are saved, and <path> is the path of SMILES dataset
 
 
 
