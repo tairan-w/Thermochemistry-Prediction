@@ -55,6 +55,7 @@ Atom type, formal charge, hybridization, aromaticity, and more.
 Bond type, conjugation, in-ring status, and additional bond features.
 
 Generate molecular descriptors using the following command:
+
 `python features/features_generators.py --input data/<data_path> --output data/features.csv`
 
 
