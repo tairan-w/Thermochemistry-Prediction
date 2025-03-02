@@ -17,66 +17,74 @@ The code was built based on [DMPNN](https://github.com/chemprop/chemprop). Thank
 Tips: Using code `conda install -c rdkit rdkit` can help you install package RDKit quickly.
 
 ## Directory Structure
-├── data/                   # Contains data processing scripts
-├── features/               # Contains feature extraction scripts
-├── models/                 # Contains model definitions
-├── train/                  # Contains training, evaluation, and cross-validation scripts
 
-## Environment
+###data                  
+This directory contains the code for data processing and preprocessing. It also includes the scripts for data splitting, molecular feature extraction, and classification.
 
+###features
+This directory contains the code for atomic and bond feature extraction, as well as the generation of additional molecular descriptors.
 
-Anaconda was used to create the virtual environment for this project. Feel free to use one of the following commands to set up the required environment:
+###model
+This directory contains the code for model definitions.
 
-Conda commands:
-
-```
-conda create -n DeepTherm python=3.6
-conda activate DeepTherm  
-conda install pandas keras scikit-learn xlrd
-``` 
+###train
+This directory contains the code for model training, evaluation, and cross-validation.
 
 
-## Overview of files
+## Data Analysis
+Place the SMILES data files in the data/ directory.
 
-It must be noted that the files for SVR and ANN are very similar and could be combined in to single files. They were kept separate for this repository in order to reduce ambiguity.
+Ensure data follows the format:
 
+SMILES,Hf(298K),S(298K),C300,C400,C500,C600,C800,C1000,C1500
+COO,-30.08,67.3,14.34,16.8,19.09,21.07,24.19,26.52,30.25
 
-### data
-- **dataset\_complete.csv**: Complete dataset used for the paper
-- **dataset\_processed.csv**: Dataset filtered to the features used for the models
-- **octene\_isomers.csv**: The Octene isomer dataset - filtering happens within the `inference.py` script.
-- **nonyne\_isomers.csv**: The Nonyne isomer dataset - filtering happens within the `inference.py` script.
-- **Training dataset.csv**: The training dataset for the final model.
+Run scripts:
+python data/scaffold.py --input <data_path> --output data/processed_data.csv
 
-### models
-- **Transfer\_learing**: Trained graph neural network model with cross-validation of 5 fold and ensemble learning of 5 models.
-- **final\_ANN\_model.pkl**: Trained ANN model with the best found combination of hyperparameters. 
-  `{'batch_size': 128, 'epochs': 5000, 'l1': 80, 'l2': 80, 'loss': 'mean_absolute_error', 'r1': 0.1, 'r2': 0.2}`
-- **final\_SVR\_model.pkl**: Trained SVR model with the best found combination of hyperparameters. 
-  `{'C': 6000, 'epsilon': 0.15}`
+## Feature Extraction
+Extract initial features using the following command:
 
+python features/featurization.py --input <data_path> --output data/features.csv
 
-### scripts
-- **run\_base\_models.py**: Running the base model with message-passing neural networks.
-- **run\_transfer\_models.py**: Transfer model parameters to a new model. Any number of model layers can be frozen. If the models are branched, any number of branches can be transferred.
-- **error\_estimation\_ann.py**: 10 fold grid search over each of 10 folds of the entire dataset in order to estimate the prediction abilities of an ANN.
-- **error\_estimation\_svr.py**: 10 fold grid search over each of 10 folds of the entire dataset in order to estimate the prediction abilities of a SVR.
-- **final\_model\_ann.py**: The script used to generate the final ANN model, `final_ANN_model.pkl`, found through a 10 fold grid search over the entire dataset.
-- **final\_model\_svr.py**: The script used to generate the final SVR model, `final_SVR_model.pkl`, found through a 10 fold grid search over the entire dataset.
-- **inference.py**: The script in order to infer the enthalpy of the Nonane isomers. Requires a command line argument specifying whether to use the ANN or the SVR.
-- **process\_dataset.py**: The script used to create `dataset_processed.csv` from `dataset_complete.csv`.
-- **sensitivity\_analysis.py**: The script used in order to run a sensitivity analysis over the final SVR model.
+Initial features include:
+Atom type, formal charge, hybridization, aromaticity, and more.
+Bond type, conjugation, in-ring status, and additional bond features.
+
+Generate molecular descriptors using the following command:
+python features/features_generators.py --input data/<data_path> --output data/features.csv
 
 
-### results
-- **grid\_search_ann.csv**: The complete results from the grid search for the ANN
-- **grid\_search\_svr.csv**: The complete results from the grid search for the SVR
+## Training
+To train a model, run:
+
+python train.py --data_path <path> --dataset_type <type> --num_folds <number_of_k-fold_cross_validation> --gpu <GPU_number> --epochs <epoch_number>
+
+where <path> is the path to a CSV file containing a dataset, <type> is either "classification" or "regression" depending on the type of the dataset.
+
+Key hyperparameters include:
+Learning Rate
+Batch Size
+Number of ‎Message-Passing Steps
+Hidden Size
+Number of Fully ‎Connected Layers
+Dropout Rate
+Weight Decay
+Optimizer
+Aggregation ‎Normalization
+Graph Pooling Method
+Attention Heads
+Early Stopping Patience
+Activation Function
 
 
+## Predicting
 
-### Authorship  
+python predict.py --data_path <path> --checkpoint_dir <dir>
 
-Tairan Wang was responsible for the code and data.
+where <dir> is the directory where the model checkpoint(s) are saved, and <path> is the path of SMILES dataset
+
+
 
 ### Acknowledgement 
 
