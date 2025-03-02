@@ -36,16 +36,16 @@ Place the SMILES data files in the data/ directory.
 
 Ensure data follows the format:
 
-SMILES,Hf(298K),S(298K),C300,C400,C500,C600,C800,C1000,C1500
-COO,-30.08,67.3,14.34,16.8,19.09,21.07,24.19,26.52,30.25
+`SMILES,Hf(298K),S(298K),C300,C400,C500,C600,C800,C1000,C1500
+COO,-30.08,67.3,14.34,16.8,19.09,21.07,24.19,26.52,30.25`
 
 Run scripts:
-python data/scaffold.py --input <data_path> --output data/processed_data.csv
+`python data/scaffold.py --input <data_path> --output data/processed_data.csv`
 
 ## Feature Extraction
 Extract initial features using the following command:
 
-python features/featurization.py --input <data_path> --output data/features.csv
+`python features/featurization.py --input <data_path> --output data/features.csv`
 
 Initial features include:
 Atom type, formal charge, hybridization, aromaticity, and more.
@@ -58,7 +58,7 @@ python features/features_generators.py --input data/<data_path> --output data/fe
 ## Training
 To train a model, run:
 
-python train.py --data_path <path> --dataset_type <type> --num_folds <number_of_k-fold_cross_validation> --gpu <GPU_number> --epochs <epoch_number>
+`python train.py --data_path <path> --dataset_type <type> --num_folds <number_of_k-fold_cross_validation> --gpu <GPU_number> --epochs <epoch_number>`
 
 where <path> is the path to a CSV file containing a dataset, <type> is either "classification" or "regression" depending on the type of the dataset.
 
@@ -80,7 +80,7 @@ Activation Function
 
 ## Predicting
 
-python predict.py --data_path <path> --checkpoint_dir <dir>
+`python predict.py --data_path <path> --checkpoint_dir <dir>`
 
 where <dir> is the directory where the model checkpoint(s) are saved, and <path> is the path of SMILES dataset
 
