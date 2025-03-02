@@ -1,2 +1,0 @@
-epochs,batch_size,loss,l1,l2,l3,l4,r1,r2,r3,r4,error_ma,error_ms,error_rms,error_mp,error_max
--,-,-,-,-,-,-,-
